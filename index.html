@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trí ♥ May — Kỷ Niệm 1 Năm Yêu Nhau</title>
+
+<!-- ════════════════════════════════════════════════════════════════
+     HƯỚNG DẪN CHỈNH SỬA NHANH (cho Trí & May 💕)
+
+     1. ĐỔI TÊN     : tìm chữ "May" và "Trí" trong phần <body>
+     2. ĐỔI NGÀY YÊU: kéo xuống cuối file, tìm dòng
+                      const NGAY_BAT_DAU = new Date(2025, 5, 13);
+                      (tháng tính từ 0 → tháng 6 = số 5)
+     3. THAY ẢNH    : tìm chữ "THAY ẢNH" — có 6 khung ảnh,
+                      chỉ cần dán thẻ <img src="ten-anh.jpg" alt="">
+                      vào trong khung là xong.
+     4. SỬA THƯ     : tìm chữ "NỘI DUNG THƯ" và viết lại theo ý mình.
+     5. SỬA TIMELINE: tìm chữ "TIMELINE" và đổi ngày + kỷ niệm thật.
+   ════════════════════════════════════════════════════════════════ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600;700&family=Dancing+Script:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ─────────────────── BIẾN MÀU: pastel hồng nhạt "một ngày mùa hạ" ─────────────────── */
+:root{
+  --kem:        #FFFBF8;   /* nền kem sáng — bình minh   */
+  --hong-phan:  #FFEDF2;   /* hồng phấn                   */
+  --hong-dao:   #FBD9DE;   /* hồng đào                    */
+  --hong-dam:   #EC7FA0;   /* hồng đậm — điểm nhấn        */
+  --tim-mo:     #F0E9FA;   /* tím oải hương mờ            */
+  --troi-ha:    #DDEEF8;   /* xanh trời pastel mùa hạ     */
+  --muc:        #6B5260;   /* màu chữ — nâu hồng dịu      */
+  --muc-nhat:   #A78E9B;
+  --giay:       #FFFEFD;   /* màu giấy viết thư           */
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+
+body{
+  font-family:'Quicksand', 'Segoe UI', sans-serif;
+  color:var(--muc);
+  background:var(--kem);
+  overflow-x:hidden;
+  line-height:1.7;
+}
+
+::selection{ background:var(--hong-dao); color:#8A4762; }
+
+/* ─────────────────── LỚP TRÁI TIM RƠI ─────────────────── */
+#bau-troi-tim{
+  position:fixed; inset:0;
+  pointer-events:none;
+  z-index:50;
+  overflow:hidden;
+}
+.tim-roi{
+  position:absolute;
+  top:-6vh;
+  animation:roi linear forwards;
+  will-change:transform;
+}
+.tim-roi i{
+  display:block;
+  font-style:normal;
+  font-family:'Segoe UI Symbol', serif;
+  animation:dua-dua ease-in-out infinite alternate;
+}
+@keyframes roi{
+  to{ transform:translateY(115vh) rotate(20deg); }
+}
+@keyframes dua-dua{
+  from{ transform:translateX(-18px) rotate(-12deg); }
+  to  { transform:translateX(18px)  rotate(12deg); }
+}
+.tim-no{ /* tim bung ra khi chạm vào màn hình */
+  position:fixed;
+  pointer-events:none;
+  z-index:60;
+  font-family:'Segoe UI Symbol', serif;
+}
+
+/* ─────────────────── HERO: BÌNH MINH MÙA HẠ ─────────────────── */
+.hero{
+  min-height:100svh;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  text-align:center;
+  padding:96px 20px 72px;
+  position:relative;
+  background:linear-gradient(180deg,
+    #FFFEFC 0%, #FFF7F2 30%, #FFEFF3 58%, #F9EFF8 82%, #F2EEFA 100%);
+}
+.hero::before, .hero::after{ /* hai vầng mây màu mờ phía sau */
+  content:""; position:absolute; border-radius:50%;
+  filter:blur(70px); opacity:.45; z-index:0;
+}
+.hero::before{ width:46vw; height:46vw; background:#FFE2EA; top:6%; left:-12%; }
+.hero::after { width:40vw; height:40vw; background:#E7DEF7; bottom:4%; right:-10%; }
+.hero > *{ position:relative; z-index:1; }
+
+.eyebrow{
+  font-size:.78rem; font-weight:700;
+  letter-spacing:.42em; text-transform:uppercase;
+  color:var(--hong-dam);
+  animation:hien-len .9s ease both;
+}
+.ten-cap-doi{
+  font-family:'Pacifico', cursive;
+  font-size:clamp(3.4rem, 12vw, 7.6rem);
+  font-weight:400;
+  color:#CB537B;
+  line-height:1.15;
+  margin:18px 0 4px;
+  display:flex; align-items:center; justify-content:center;
+  gap:.22em; flex-wrap:wrap;
+  text-shadow:0 2px 0 #fff, 0 14px 34px rgba(225,130,160,.24);
+  animation:hien-len 1s .15s ease both;
+}
+.tim-lon{
+  width:clamp(40px, 8vw, 84px);
+  filter:drop-shadow(0 8px 16px rgba(236,127,160,.4));
+  animation:nhip-tim 1.5s ease-in-out infinite;
+  transform-origin:center;
+}
+@keyframes nhip-tim{
+  0%,100%{ transform:scale(1); }
+  14%    { transform:scale(1.18); }
+  28%    { transform:scale(1); }
+  42%    { transform:scale(1.12); }
+  56%    { transform:scale(1); }
+}
+.ten-day-du{
+  font-size:.95rem; font-weight:700;
+  letter-spacing:.34em; text-transform:uppercase;
+  color:var(--muc-nhat);
+  animation:hien-len 1s .3s ease both;
+}
+.loi-mo-dau{
+  margin-top:26px;
+  font-size:clamp(1rem, 2.4vw, 1.2rem);
+  max-width:34em;
+  color:#876979;
+  animation:hien-len 1s .45s ease both;
+}
+.loi-mo-dau strong{ color:var(--hong-dam); }
+
+/* bộ đếm thời gian yêu nhau */
+.nhan-dem{
+  margin-top:40px;
+  font-family:'Dancing Script', cursive;
+  font-size:1.5rem; color:#BC6E8F;
+  animation:hien-len 1s .55s ease both;
+}
+.bo-dem{
+  margin-top:14px;
+  display:flex; gap:12px; flex-wrap:wrap; justify-content:center;
+  animation:hien-len 1s .65s ease both;
+}
+.o-dem{
+  min-width:86px;
+  padding:14px 12px 11px;
+  background:rgba(255,255,255,.62);
+  border:1px solid rgba(255,255,255,.9);
+  backdrop-filter:blur(6px);
+  border-radius:20px;
+  box-shadow:0 10px 26px rgba(205,125,155,.13);
+}
+.o-dem b{
+  display:block;
+  font-size:clamp(1.6rem, 4vw, 2.2rem);
+  font-weight:700; color:#CB537B;
+  font-variant-numeric:tabular-nums;
+  line-height:1.1;
+}
+.o-dem span{
+  font-size:.72rem; font-weight:700;
+  letter-spacing:.22em; text-transform:uppercase;
+  color:var(--muc-nhat);
+}
+.goi-cuon{
+  position:absolute; bottom:26px; left:50%; transform:translateX(-50%);
+  font-size:.8rem; letter-spacing:.28em; text-transform:uppercase;
+  color:var(--muc-nhat); font-weight:700;
+  animation:nhap-nho 2.2s ease-in-out infinite;
+}
+@keyframes nhap-nho{
+  0%,100%{ transform:translate(-50%,0); opacity:.7; }
+  50%    { transform:translate(-50%,8px); opacity:1; }
+}
+@keyframes hien-len{
+  from{ opacity:0; transform:translateY(22px); }
+  to  { opacity:1; transform:none; }
+}
+
+/* ─────────────────── KHUNG CHUNG CHO CÁC PHẦN ─────────────────── */
+.phan{ padding:96px 20px; }
+.khung{ max-width:1020px; margin:0 auto; }
+.dau-phan{ text-align:center; margin-bottom:56px; }
+.dau-phan .eyebrow{ animation:none; }
+.tieu-de{
+  font-family:'Pacifico', cursive;
+  font-weight:400;
+  font-size:clamp(2.1rem, 6vw, 3.2rem);
+  color:#CB537B;
+  margin-top:12px;
+  line-height:1.3;
+}
+.mo-ta-phan{
+  margin-top:10px; color:var(--muc-nhat);
+  max-width:36em; margin-left:auto; margin-right:auto;
+}
+
+/* hiệu ứng hiện dần khi cuộn */
+.hien-dan{ opacity:0; transform:translateY(28px); transition:opacity .8s ease, transform .8s ease; }
+.hien-dan.da-hien{ opacity:1; transform:none; }
+
+/* ─────────────────── TIMELINE: HÀNH TRÌNH 365 NGÀY ─────────────────── */
+.phan-timeline{ background:var(--kem); }
+.duong-thoi-gian{ position:relative; padding:10px 0; }
+.duong-thoi-gian::before{
+  content:"";
+  position:absolute; top:0; bottom:0; left:50%;
+  width:3px; transform:translateX(-50%);
+  background:linear-gradient(180deg, var(--hong-dao), var(--tim-mo), var(--troi-ha));
+  border-radius:3px;
+}
+.moc{
+  position:relative;
+  width:50%;
+  padding:6px 48px 38px 0;
+}
+.moc:nth-child(even){ margin-left:50%; padding:6px 0 38px 48px; }
+.moc::before{ /* trái tim nhỏ trên trục */
+  content:"♥";
+  position:absolute; top:22px; right:-13px;
+  width:26px; height:26px;
+  display:flex; align-items:center; justify-content:center;
+  background:#fff;
+  color:var(--hong-dam); font-size:.85rem;
+  border:2px solid var(--hong-dao);
+  border-radius:50%;
+  box-shadow:0 4px 12px rgba(225,130,160,.28);
+  z-index:2;
+}
+.moc:nth-child(even)::before{ right:auto; left:-13px; }
+.the-moc{
+  background:#fff;
+  border-radius:22px;
+  padding:24px 26px;
+  box-shadow:0 14px 34px rgba(205,125,155,.12);
+  border:1px solid #FDEFF3;
+  text-align:right;
+  transition:transform .35s ease, box-shadow .35s ease;
+}
+.moc:nth-child(even) .the-moc{ text-align:left; }
+.the-moc:hover{
+  transform:translateY(-5px) rotate(-.4deg);
+  box-shadow:0 20px 44px rgba(205,125,155,.18);
+}
+.nhan-ngay{
+  display:inline-block;
+  font-size:.74rem; font-weight:700;
+  letter-spacing:.18em;
+  color:#CB537B;
+  background:var(--hong-phan);
+  padding:5px 14px; border-radius:999px;
+  margin-bottom:10px;
+}
+.the-moc h3{
+  font-family:'Dancing Script', cursive;
+  font-size:1.7rem; font-weight:700;
+  color:#B5567E;
+  margin-bottom:6px;
+}
+.the-moc p{ font-size:.96rem; color:#876979; }
+
+/* ─────────────────── ALBUM ẢNH KỶ NIỆM ─────────────────── */
+.phan-album{
+  background:linear-gradient(180deg, var(--kem) 0%, #FDF5F9 50%, #F9F2FB 100%);
+}
+.luoi-anh{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+  gap:38px 30px;
+  padding-top:8px;
+}
+.polaroid{
+  background:#fff;
+  padding:13px 13px 52px;
+  border-radius:6px;
+  box-shadow:0 16px 36px rgba(165,105,140,.15);
+  position:relative;
+  transition:transform .4s ease, box-shadow .4s ease;
+}
+.polaroid::before{ /* băng dính washi */
+  content:"";
+  position:absolute; top:-13px; left:50%;
+  width:96px; height:28px;
+  transform:translateX(-50%) rotate(-3deg);
+  background:linear-gradient(90deg, rgba(251,215,221,.8), rgba(221,238,248,.8));
+  border-left:1px dashed rgba(255,255,255,.8);
+  border-right:1px dashed rgba(255,255,255,.8);
+  border-radius:2px;
+}
+.luoi-anh .polaroid:nth-child(3n+1){ transform:rotate(-2.4deg); }
+.luoi-anh .polaroid:nth-child(3n+2){ transform:rotate(1.8deg); }
+.luoi-anh .polaroid:nth-child(3n)  { transform:rotate(-1.2deg); }
+.polaroid:hover{
+  transform:rotate(0) scale(1.045) !important;
+  box-shadow:0 24px 52px rgba(165,105,140,.25);
+  z-index:3;
+}
+.anh{
+  aspect-ratio:4/5;
+  border-radius:3px;
+  overflow:hidden;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  gap:8px;
+  background:linear-gradient(150deg, #FFEDF2, #F7EEFA 55%, #E8F3FA);
+  color:#CD8BAB;
+}
+.anh img{ width:100%; height:100%; object-fit:cover; display:block; }
+.anh .tim-mau{ font-size:2.6rem; opacity:.8; }
+.anh small{
+  font-size:.76rem; font-weight:600;
+  letter-spacing:.08em; color:#C49BB3;
+}
+.chu-thich-anh{
+  position:absolute; left:0; right:0; bottom:12px;
+  text-align:center;
+  font-family:'Dancing Script', cursive;
+  font-size:1.35rem; font-weight:600;
+  color:#B5567E;
+}
+
+/* ─────────────────── THƯ TÌNH TRONG PHONG BÌ ─────────────────── */
+.phan-thu{
+  background:linear-gradient(180deg, #F9F2FB 0%, #FDF2F6 60%, #FFF2EE 100%);
+  overflow:hidden;
+}
+.vung-thu{
+  display:flex; flex-direction:column;
+  align-items:center;
+  min-height:420px;
+  position:relative;
+}
+
+/* phong bì */
+.phong-bi{
+  border:0; background:transparent; cursor:pointer;
+  position:relative;
+  width:min(360px, 88vw);
+  aspect-ratio:36/24;
+  margin-top:30px;
+  filter:drop-shadow(0 22px 38px rgba(190,105,135,.26));
+  transition:transform .5s ease, opacity .5s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.phong-bi:focus-visible{ outline:3px dashed var(--hong-dam); outline-offset:8px; border-radius:14px; }
+.pb-lung{
+  position:absolute; inset:0;
+  background:#F7C2D1;
+  border-radius:12px;
+}
+.pb-giay{ /* lá thư thò ra */
+  position:absolute; left:7%; right:7%; top:9%; bottom:12%;
+  background:var(--giay);
+  border-radius:6px;
+  box-shadow:0 4px 10px rgba(0,0,0,.07);
+  transition:transform .65s ease .3s;
+  display:flex; align-items:flex-end; justify-content:center;
+  padding-bottom:10px;
+  font-family:'Dancing Script', cursive;
+  font-size:1.1rem; color:#D29FB7;
+}
+.pb-truoc{
+  position:absolute; inset:0; top:auto; height:64%;
+  background:linear-gradient(180deg, #FBD7E1, #F6BFD1);
+  clip-path:polygon(0 0, 50% 46%, 100% 0, 100% 100%, 0 100%);
+  border-radius:0 0 12px 12px;
+  z-index:3;
+}
+.pb-nap{
+  position:absolute; top:0; left:0; right:0; height:50%;
+  background:linear-gradient(180deg, #F6B8CA, #F3ACC2);
+  clip-path:polygon(0 0, 100% 0, 50% 100%);
+  border-radius:12px 12px 0 0;
+  transform-origin:top center;
+  transition:transform .55s ease, z-index 0s .3s;
+  z-index:4;
+}
+.pb-dau{ /* dấu sáp niêm phong */
+  position:absolute; top:42%; left:50%;
+  width:62px; height:62px;
+  transform:translate(-50%,-50%);
+  background:radial-gradient(circle at 35% 30%, #EF94B1, #D26A8D 70%);
+  border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Dancing Script', cursive;
+  font-weight:700; font-size:1.15rem; color:#fff;
+  box-shadow:inset 0 -4px 8px rgba(135,45,75,.3), inset 0 3px 6px rgba(255,255,255,.4), 0 6px 14px rgba(170,80,110,.35);
+  z-index:5;
+  transition:opacity .35s ease, transform .35s ease;
+}
+.goi-mo-thu{
+  margin-top:30px;
+  font-weight:700; letter-spacing:.22em; text-transform:uppercase;
+  font-size:.78rem; color:#BC6E8F;
+  animation:nhap-nho-nhe 2s ease-in-out infinite;
+}
+@keyframes nhap-nho-nhe{
+  0%,100%{ opacity:.65; } 50%{ opacity:1; }
+}
+/* trạng thái mở phong bì */
+.vung-thu.dang-mo .pb-nap{ transform:rotateX(180deg); z-index:1; }
+.vung-thu.dang-mo .pb-dau{ opacity:0; transform:translate(-50%,-50%) scale(.4); }
+.vung-thu.dang-mo .pb-giay{ transform:translateY(-34%); }
+.vung-thu.thu-hien .phong-bi,
+.vung-thu.thu-hien .goi-mo-thu{
+  opacity:0; transform:translateY(36px) scale(.9);
+  pointer-events:none;
+  position:absolute;
+}
+
+/* lá thư đầy đủ */
+.la-thu{
+  width:min(620px, 94vw);
+  background:
+    repeating-linear-gradient(transparent 0 35px, #FAEAEF 35px 36px),
+    var(--giay);
+  border-radius:14px;
+  padding:52px 8% 44px;
+  box-shadow:0 26px 60px rgba(180,100,130,.22);
+  position:relative;
+  transform:rotate(-.6deg);
+  opacity:0; translate:0 36px; scale:.96;
+  transition:opacity .7s ease .15s, translate .7s ease .15s, scale .7s ease .15s;
+}
+.vung-thu.thu-hien .la-thu{ opacity:1; translate:0 0; scale:1; }
+.la-thu::before{ /* băng dính giữ thư */
+  content:"";
+  position:absolute; top:-14px; left:50%;
+  width:120px; height:30px;
+  transform:translateX(-50%) rotate(2deg);
+  background:rgba(251,215,221,.75);
+  border-left:1px dashed rgba(255,255,255,.85);
+  border-right:1px dashed rgba(255,255,255,.85);
+}
+.la-thu .chao-thu{
+  font-family:'Dancing Script', cursive;
+  font-size:1.9rem; font-weight:700; color:#B5567E;
+  line-height:36px;
+  margin-bottom:36px;
+}
+.la-thu p{
+  font-size:1rem;
+  line-height:36px;
+  color:#7A5B6A;
+  margin-bottom:36px;
+}
+.la-thu .ky-ten{
+  font-family:'Dancing Script', cursive;
+  font-size:1.8rem; font-weight:700;
+  color:#CB537B;
+  text-align:right;
+  line-height:36px;
+}
+.nut-gap-thu{
+  display:block;
+  margin:26px auto 0;
+  border:0; cursor:pointer;
+  font-family:'Quicksand', sans-serif;
+  font-weight:700; font-size:.8rem;
+  letter-spacing:.2em; text-transform:uppercase;
+  color:#BC6E8F;
+  background:rgba(255,255,255,.7);
+  border:1px solid #F9DEE7;
+  padding:11px 24px; border-radius:999px;
+  transition:background .3s ease, transform .3s ease;
+  opacity:0;
+}
+.vung-thu.thu-hien .nut-gap-thu{ opacity:1; transition-delay:.5s; }
+.nut-gap-thu:hover{ background:#fff; transform:translateY(-2px); }
+
+/* ─────────────────── FOOTER: HOÀNG HÔN ─────────────────── */
+.chan-trang{
+  background:linear-gradient(180deg, #FFF2EE 0%, #F8CCD6 38%, #E2A2BC 75%, #C893C7 100%);
+  text-align:center;
+  padding:110px 20px 64px;
+  color:#fff;
+}
+.chan-trang .loi-cuoi{
+  font-family:'Pacifico', cursive;
+  font-size:clamp(1.9rem, 5.6vw, 3rem);
+  line-height:1.45;
+  text-shadow:0 3px 18px rgba(130,60,100,.3);
+  max-width:18em; margin:0 auto;
+}
+.chan-trang .ngay-ky-niem{
+  margin-top:26px;
+  font-weight:700; letter-spacing:.3em; text-transform:uppercase;
+  font-size:.8rem; opacity:.95;
+  text-shadow:0 1px 10px rgba(130,60,100,.3);
+}
+.chan-trang .ghi-chu-nho{
+  margin-top:42px;
+  font-size:.78rem; opacity:.8;
+  text-shadow:0 1px 8px rgba(130,60,100,.28);
+  font-weight:600; letter-spacing:.06em;
+}
+
+/* ─────────────────── MOBILE ─────────────────── */
+@media (max-width:720px){
+  .phan{ padding:72px 18px; }
+  .duong-thoi-gian::before{ left:16px; }
+  .moc, .moc:nth-child(even){
+    width:100%; margin-left:0;
+    padding:4px 0 32px 48px;
+  }
+  .moc::before, .moc:nth-child(even)::before{ left:4px; right:auto; }
+  .the-moc, .moc:nth-child(even) .the-moc{ text-align:left; }
+  .o-dem{ min-width:72px; padding:11px 8px 9px; }
+}
+
+/* ─────────────────── GIẢM CHUYỂN ĐỘNG ─────────────────── */
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:.001s !important; animation-iteration-count:1 !important; transition-duration:.15s !important; }
+  .tim-roi, .tim-no{ display:none !important; }
+  .hien-dan{ opacity:1; transform:none; }
+}
+</style>
+</head>
+<body>
+
+<!-- lớp trái tim rơi -->
+<div id="bau-troi-tim" aria-hidden="true"></div>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<header class="hero">
+  <p class="eyebrow">Kỷ niệm một năm yêu nhau</p>
+
+  <h1 class="ten-cap-doi">
+    <span>Trí</span>
+    <svg class="tim-lon" viewBox="0 0 32 29" aria-hidden="true">
+      <path d="M16 29S0 19.2 0 9.6C0 4.1 4.1 0 9.2 0 12.1 0 14.6 1.5 16 3.9 17.4 1.5 19.9 0 22.8 0 27.9 0 32 4.1 32 9.6 32 19.2 16 29 16 29z" fill="#EC7FA0"/>
+    </svg>
+    <span>May</span>
+  </h1>
+  <p class="ten-day-du">Trí Bùi &nbsp;&amp;&nbsp; Hạ May</p>
+
+  <p class="loi-mo-dau">
+    Chuyện mình bắt đầu vào một ngày đầu hạ — <strong>13.06.2025</strong>.<br>
+    Và hôm nay, mình đã đi cùng nhau trọn một vòng bốn mùa. 🌸
+  </p>
+
+  <p class="nhan-dem">và chúng mình đã yêu nhau được…</p>
+  <div class="bo-dem" aria-label="Thời gian yêu nhau">
+    <div class="o-dem"><b id="dem-ngay">365</b><span>Ngày</span></div>
+    <div class="o-dem"><b id="dem-gio">0</b><span>Giờ</span></div>
+    <div class="o-dem"><b id="dem-phut">0</b><span>Phút</span></div>
+    <div class="o-dem"><b id="dem-giay">0</b><span>Giây</span></div>
+  </div>
+
+  <p class="goi-cuon">cuộn xuống ⌄</p>
+</header>
+
+<main>
+
+<!-- ═══════════════ TIMELINE: sửa kỷ niệm thật của hai bạn ở đây ═══════════════ -->
+<section class="phan phan-timeline">
+  <div class="khung">
+    <div class="dau-phan hien-dan">
+      <p class="eyebrow">Hành trình</p>
+      <h2 class="tieu-de">365 ngày bên nhau</h2>
+      <p class="mo-ta-phan">Mỗi cột mốc là một mảnh ghép nhỏ làm nên chuyện tình của Trí &amp; May.</p>
+    </div>
+
+    <div class="duong-thoi-gian">
+
+      <div class="moc hien-dan">
+        <div class="the-moc">
+          <span class="nhan-ngay">13.06.2025</span>
+          <h3>Ngày đầu tiên ♥</h3>
+          <p>Một lời tỏ tình vụng về và một cái gật đầu ngại ngùng — từ hôm ấy, "tớ" và "cậu" trở thành "chúng mình".</p>
+        </div>
+      </div>
+
+      <div class="moc hien-dan">
+        <div class="the-moc">
+          <span class="nhan-ngay">21.06.2025</span>
+          <h3>Buổi hẹn đầu tiên</h3>
+          <p>Một quán cà phê nhỏ, hai ly nước, và một buổi chiều nói chuyện đến quên cả thời gian.</p>
+        </div>
+      </div>
+
+      <div class="moc hien-dan">
+        <div class="the-moc">
+          <span class="nhan-ngay">Tháng 9 · 2025</span>
+          <h3>Chuyến đi xa đầu tiên</h3>
+          <p>Lần đầu cùng nhau ra biển — có nắng, có gió, và có thật nhiều tiếng cười.</p>
+        </div>
+      </div>
+
+      <div class="moc hien-dan">
+        <div class="the-moc">
+          <span class="nhan-ngay">24.12.2025</span>
+          <h3>Giáng sinh đầu tiên</h3>
+          <p>Phố đông người, đèn vàng lấp lánh, tay trong tay — mùa đông bỗng ấm hơn mọi năm.</p>
+        </div>
+      </div>
+
+      <div class="moc hien-dan">
+        <div class="the-moc">
+          <span class="nhan-ngay">14.02.2026</span>
+          <h3>Valentine đầu tiên</h3>
+          <p>Hoa, sô-cô-la, và một lời hứa nhỏ: năm nào mình cũng sẽ là Valentine của nhau.</p>
+        </div>
+      </div>
+
+      <div class="moc hien-dan">
+        <div class="the-moc">
+          <span class="nhan-ngay">13.06.2026</span>
+          <h3>Tròn một năm 🎉</h3>
+          <p>365 ngày yêu thương — và đây mới chỉ là chương đầu tiên trong câu chuyện của chúng mình.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ ALBUM ẢNH ═══════════════ -->
+<section class="phan phan-album">
+  <div class="khung">
+    <div class="dau-phan hien-dan">
+      <p class="eyebrow">Khoảnh khắc</p>
+      <h2 class="tieu-de">Album kỷ niệm</h2>
+      <p class="mo-ta-phan">Những tấm ảnh polaroid lưu giữ một năm đáng nhớ. Thay ảnh thật của hai bạn vào nhé!</p>
+    </div>
+
+    <div class="luoi-anh">
+
+      <!-- THAY ẢNH 1: dán <img src="anh-cua-ban.jpg" alt=""> vào trong div.anh, xoá phần placeholder -->
+      <figure class="polaroid hien-dan">
+        <div class="anh">
+          <span class="tim-mau">🌸</span><small>Thay ảnh vào đây</small>
+        </div>
+        <figcaption class="chu-thich-anh">Khoảnh khắc đầu tiên</figcaption>
+      </figure>
+
+      <!-- THAY ẢNH 2 -->
+      <figure class="polaroid hien-dan">
+        <div class="anh">
+          <span class="tim-mau">💌</span><small>Thay ảnh vào đây</small>
+        </div>
+        <figcaption class="chu-thich-anh">Hẹn hò cuối tuần</figcaption>
+      </figure>
+
+      <!-- THAY ẢNH 3 -->
+      <figure class="polaroid hien-dan">
+        <div class="anh">
+          <span class="tim-mau">🌊</span><small>Thay ảnh vào đây</small>
+        </div>
+        <figcaption class="chu-thich-anh">Chuyến đi của mình</figcaption>
+      </figure>
+
+      <!-- THAY ẢNH 4 -->
+      <figure class="polaroid hien-dan">
+        <div class="anh">
+          <span class="tim-mau">🎄</span><small>Thay ảnh vào đây</small>
+        </div>
+        <figcaption class="chu-thich-anh">Mùa đông ấm áp</figcaption>
+      </figure>
+
+      <!-- THAY ẢNH 5 -->
+      <figure class="polaroid hien-dan">
+        <div class="anh">
+          <span class="tim-mau">🥰</span><small>Thay ảnh vào đây</small>
+        </div>
+        <figcaption class="chu-thich-anh">Một ngày bình thường</figcaption>
+      </figure>
+
+      <!-- THAY ẢNH 6 -->
+      <figure class="polaroid hien-dan">
+        <div class="anh">
+          <span class="tim-mau">♥</span><small>Thay ảnh vào đây</small>
+        </div>
+        <figcaption class="chu-thich-anh">Mãi như thế nhé</figcaption>
+      </figure>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ THƯ TÌNH ═══════════════ -->
+<section class="phan phan-thu">
+  <div class="khung">
+    <div class="dau-phan hien-dan">
+      <p class="eyebrow">Gửi yêu thương</p>
+      <h2 class="tieu-de">Thư anh gửi em</h2>
+    </div>
+
+    <div class="vung-thu hien-dan" id="vung-thu">
+
+      <button class="phong-bi" id="phong-bi" aria-expanded="false" aria-controls="la-thu" aria-label="Mở lá thư">
+        <span class="pb-lung"></span>
+        <span class="pb-giay">gửi May của anh ♥</span>
+        <span class="pb-truoc"></span>
+        <span class="pb-nap"></span>
+        <span class="pb-dau">T♥M</span>
+      </button>
+      <p class="goi-mo-thu">Nhấn vào phong bì để mở thư 💌</p>
+
+      <!-- NỘI DUNG THƯ: viết lại theo lời của bạn ở đây -->
+      <div class="la-thu" id="la-thu" hidden>
+        <p class="chao-thu">Gửi May của anh,</p>
+        <p>
+          Vậy là tròn một năm kể từ ngày anh lấy hết can đảm nói lời thương —
+          và em ngại ngùng gật đầu. Một năm có những buổi hẹn quên cả giờ về,
+          có vài lần giận dỗi vu vơ, nhưng chưa một ngày nào anh thôi muốn
+          ở cạnh em.
+        </p>
+        <p>
+          Cảm ơn em vì những tin nhắn "ăn cơm chưa?" mỗi tối, vì đã kiên nhẫn
+          với một người đôi lúc vụng về như anh, và vì cả nghìn điều nhỏ xíu
+          em làm mà tưởng anh không để ý — anh nhớ hết đấy.
+        </p>
+        <p>
+          Có lẽ vì em tên là May, nên gặp được em là điều may mắn nhất
+          mùa hạ năm ấy của anh. Một năm mới chỉ là chương mở đầu —
+          anh hứa sẽ nắm tay em đi qua thật nhiều mùa hạ nữa.
+        </p>
+        <p class="ky-ten">Thương em thật nhiều,<br>Trí của em</p>
+      </div>
+
+      <button class="nut-gap-thu" id="nut-gap-thu" hidden>Gấp thư lại 💌</button>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="chan-trang">
+  <p class="loi-cuoi">Một năm là chương đầu tiên.<br>Anh hẹn em những chương sau ♥</p>
+  <p class="ngay-ky-niem">Trí ♥ May — từ 13.06.2025</p>
+  <p class="ghi-chu-nho">Làm bằng cả trái tim · 13.06.2026</p>
+</footer>
+
+<script>
+/* ════════ ĐỔI NGÀY YÊU NHAU TẠI ĐÂY (năm, tháng-1, ngày) ════════ */
+const NGAY_BAT_DAU = new Date(2025, 5, 13); // 13/06/2025
+
+const giamChuyenDong = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ───── Bộ đếm thời gian yêu nhau ───── */
+const oNgay = document.getElementById('dem-ngay');
+const oGio  = document.getElementById('dem-gio');
+const oPhut = document.getElementById('dem-phut');
+const oGiay = document.getElementById('dem-giay');
+
+function capNhatDem(){
+  const giay = Math.max(0, Math.floor((Date.now() - NGAY_BAT_DAU.getTime()) / 1000));
+  oNgay.textContent = Math.floor(giay / 86400);
+  oGio.textContent  = Math.floor(giay / 3600) % 24;
+  oPhut.textContent = Math.floor(giay / 60) % 60;
+  oGiay.textContent = giay % 60;
+}
+capNhatDem();
+setInterval(capNhatDem, 1000);
+
+/* ───── Trái tim rơi ───── */
+const bauTroi = document.getElementById('bau-troi-tim');
+const MAU_TIM = ['#F9BBC8', '#ECA4BE', '#DACAF0', '#FBD9DE', '#EC7FA0', '#F8D8E9'];
+
+function thaTim(){
+  if (giamChuyenDong || document.hidden) return;
+  if (bauTroi.children.length > 26) return; // giới hạn để trang luôn mượt
+
+  const ngoai = document.createElement('span');
+  ngoai.className = 'tim-roi';
+  const trong = document.createElement('i');
+  trong.textContent = '♥';
+
+  const kichThuoc = 12 + Math.random() * 16;          // 12–28px
+  const thoiGianRoi = 7 + Math.random() * 7;          // 7–14s
+  const thoiGianDua = 2 + Math.random() * 2.5;        // 2–4.5s
+
+  ngoai.style.left = Math.random() * 100 + 'vw';
+  ngoai.style.animationDuration = thoiGianRoi + 's';
+  trong.style.fontSize = kichThuoc + 'px';
+  trong.style.color = MAU_TIM[Math.floor(Math.random() * MAU_TIM.length)];
+  trong.style.opacity = (0.45 + Math.random() * 0.45).toFixed(2);
+  trong.style.animationDuration = thoiGianDua + 's';
+
+  ngoai.appendChild(trong);
+  bauTroi.appendChild(ngoai);
+  setTimeout(() => ngoai.remove(), thoiGianRoi * 1000 + 200);
+}
+if (!giamChuyenDong){
+  for (let i = 0; i < 8; i++) setTimeout(thaTim, i * 350);
+  setInterval(thaTim, 620);
+}
+
+/* ───── Tim bung ra khi chạm / nhấp vào trang ───── */
+document.addEventListener('pointerdown', (e) => {
+  if (giamChuyenDong) return;
+  for (let i = 0; i < 7; i++){
+    const tim = document.createElement('span');
+    tim.className = 'tim-no';
+    tim.textContent = '♥';
+    tim.style.left = e.clientX + 'px';
+    tim.style.top  = e.clientY + 'px';
+    tim.style.fontSize = (10 + Math.random() * 12) + 'px';
+    tim.style.color = MAU_TIM[Math.floor(Math.random() * MAU_TIM.length)];
+    document.body.appendChild(tim);
+
+    const goc = Math.random() * Math.PI * 2;
+    const xa  = 46 + Math.random() * 56;
+    tim.animate([
+      { transform:'translate(-50%,-50%) scale(.5)', opacity:1 },
+      { transform:`translate(calc(-50% + ${Math.cos(goc)*xa}px), calc(-50% + ${Math.sin(goc)*xa - 28}px)) scale(1.15) rotate(${(Math.random()*70-35)}deg)`, opacity:0 }
+    ], { duration: 750 + Math.random() * 450, easing:'cubic-bezier(.2,.7,.4,1)' })
+    .onfinish = () => tim.remove();
+  }
+});
+
+/* ───── Hiện dần khi cuộn ───── */
+const cacKhoi = document.querySelectorAll('.hien-dan');
+if ('IntersectionObserver' in window && !giamChuyenDong){
+  const quanSat = new IntersectionObserver((muc) => {
+    muc.forEach(m => {
+      if (m.isIntersecting){
+        m.target.classList.add('da-hien');
+        quanSat.unobserve(m.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  cacKhoi.forEach(k => quanSat.observe(k));
+} else {
+  cacKhoi.forEach(k => k.classList.add('da-hien'));
+}
+
+/* ───── Mở / gấp lá thư ───── */
+const vungThu  = document.getElementById('vung-thu');
+const phongBi  = document.getElementById('phong-bi');
+const laThu    = document.getElementById('la-thu');
+const nutGap   = document.getElementById('nut-gap-thu');
+
+phongBi.addEventListener('click', () => {
+  phongBi.setAttribute('aria-expanded', 'true');
+  vungThu.classList.add('dang-mo');
+  laThu.hidden = false;
+  nutGap.hidden = false;
+  setTimeout(() => vungThu.classList.add('thu-hien'), giamChuyenDong ? 0 : 750);
+});
+
+nutGap.addEventListener('click', () => {
+  vungThu.classList.remove('thu-hien');
+  phongBi.setAttribute('aria-expanded', 'false');
+  setTimeout(() => {
+    vungThu.classList.remove('dang-mo');
+    laThu.hidden = true;
+    nutGap.hidden = true;
+    phongBi.focus();
+  }, giamChuyenDong ? 0 : 550);
+});
+</script>
+</body>
+</html>
